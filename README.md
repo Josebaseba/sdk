@@ -1,18 +1,13 @@
 <div align="center">
   <img src="https://github.com/microlinkhq/cdn/raw/master/dist/banner/sdk.png#gh-light-mode-only" alt="microlink sdk">
   <img src="https://github.com/microlinkhq/cdn/raw/master/dist/banner/sdk-dark.png#gh-dark-mode-only" alt="microlink sdk">
-  <br><br>
-</div>
-
-<div align="center">
+  <p><b>Turn links into beautiful previews</b></p>
   <a href="https://microlink.io"><img src="https://img.shields.io/badge/powered_by-microlink.io-blue?style=flat-square&color=%23EA407B" alt="Powered by microlink.io"></a>
   <a href="https://microlink.io/sdk"><img src="https://img.shields.io/badge/documentation-📚-blue?style=flat-square" alt="Documentation"></a>
   <a href="https://sdk-react.microlink.io"><img src="https://img.shields.io/badge/storybook-📖-green?style=flat-square" alt="Storybook"></a>
   <a href="https://sdk-vanilla.microlink.io/"><img src="https://img.shields.io/badge/vainilla demo-🍦-red?style=flat-square" alt="NPM Status"></a>
   <br><br>
 </div>
-
-> Turn links into beautiful previews
 
 Microlink SDK renders link previews from any URL. It fetches metadata from the [Microlink API](https://microlink.io) and displays it as a beautiful card with title, description, image, and more.
 
