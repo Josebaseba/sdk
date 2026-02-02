@@ -14,6 +14,8 @@
 
 > Turn links into beautiful previews
 
+Microlink SDK renders link previews from any URL. It fetches metadata from the [Microlink API](https://microlink.io) and displays it as a beautiful card with title, description, image, and more.
+
 ## Features
 
 - **Rich Media Support** - Images, videos, audio, screenshots, and embedded iframes
@@ -26,6 +28,8 @@
 - **Framework Agnostic** - React component and vanilla JS versions available
 
 ## Packages
+
+The SDK is available in multiple flavors to fit your stack. The hover packages display previews when users hover over links.
 
 | Package | Description | Version |
 |---------|-------------|---------|
@@ -88,6 +92,8 @@ export default function App() {
 
 ## Props
 
+All props are passed to the Microlink component. The only required prop is `url`.
+
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
 | `url` | `string` | **required** | The URL to preview |
@@ -104,6 +110,8 @@ export default function App() {
 
 ### Media Props
 
+These props control video and audio playback behavior.
+
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
 | `autoPlay` | `boolean` | `true` | Auto-play video/audio |
@@ -117,6 +125,8 @@ export default function App() {
 
 ### Card Sizes
 
+Choose the card layout that fits your design. `small` shows a compact horizontal card, `normal` is the default, and `large` displays a vertical card with more prominent media.
+
 ```jsx
 <Microlink url="https://github.com" size="small" />
 <Microlink url="https://github.com" size="normal" />
@@ -124,6 +134,8 @@ export default function App() {
 ```
 
 ### Media Types
+
+Control which media type to display. You can specify a single type or an array of types in priority order—the first available type will be shown.
 
 ```jsx
 // Show image (default)
@@ -158,11 +170,15 @@ Automatically adapts the card's colors based on the image's palette:
 
 ### RTL Direction
 
+For right-to-left languages, the card layout is mirrored with media on the right side.
+
 ```jsx
 <Microlink url="https://github.com" direction="rtl" />
 ```
 
 ### Lazy Loading
+
+Cards are lazily loaded using IntersectionObserver, meaning data is only fetched when the card enters the viewport. This improves performance for pages with many links.
 
 ```jsx
 // Enabled by default
@@ -177,7 +193,7 @@ Automatically adapts the card's colors based on the image's palette:
 
 ### Custom Data
 
-Override fetched data with an object:
+Use `setData` to override or transform the data fetched from the API. Pass an object to merge with the response:
 
 ```jsx
 <Microlink
@@ -190,7 +206,7 @@ Override fetched data with an object:
 />
 ```
 
-Or use a function to transform the data:
+Or pass a function to transform the fetched data:
 
 ```jsx
 <Microlink
@@ -203,6 +219,8 @@ Or use a function to transform the data:
 ```
 
 ### Static Mode (No API Fetch)
+
+Disable API calls and provide your own data. Useful for server-side rendering or when you already have the metadata.
 
 ```jsx
 <Microlink
@@ -218,6 +236,8 @@ Or use a function to transform the data:
 
 ### Video/Audio Controls
 
+Fine-tune playback behavior for video and audio media. By default, media auto-plays muted and loops.
+
 ```jsx
 <Microlink
   url="https://youtube.com/watch?v=..."
@@ -230,6 +250,8 @@ Or use a function to transform the data:
 ```
 
 ### Media Element Reference
+
+Access the underlying `<video>` or `<audio>` DOM element for programmatic control.
 
 ```jsx
 <Microlink
@@ -245,7 +267,7 @@ Or use a function to transform the data:
 
 ## Keyboard Shortcuts
 
-When media controls are enabled:
+When a video or audio card is focused, these keyboard shortcuts are available for playback control.
 
 | Key | Action |
 |-----|--------|
@@ -256,7 +278,11 @@ When media controls are enabled:
 
 ## CSS Customization
 
+Customize the card appearance using CSS variables, class names, or inline styles.
+
 ### CSS Variables
+
+Override these variables to change the card's appearance globally or per-instance.
 
 ```css
 .microlink_card {
@@ -272,6 +298,8 @@ When media controls are enabled:
 ```
 
 ### CSS Class Names
+
+Target these classes in your stylesheets for more specific customization.
 
 | Class | Description |
 |-------|-------------|
@@ -289,6 +317,8 @@ When media controls are enabled:
 
 ### Custom Styles
 
+Pass inline styles directly to the card component.
+
 ```jsx
 <Microlink
   url="https://github.com"
@@ -301,6 +331,8 @@ When media controls are enabled:
 ```
 
 ## Hover Previews
+
+The hover packages display a preview card when users hover over a link. Great for adding context without leaving the page.
 
 ### React
 
@@ -333,7 +365,7 @@ export default function App() {
 
 ## Exported Utilities
 
-The React package exports additional utilities:
+The React package exports helper functions for advanced use cases like custom implementations or server-side rendering.
 
 ```js
 import Microlink, { imageProxy, getApiUrl, fetchFromApi } from '@microlink/react'
@@ -354,6 +386,8 @@ const { data } = await fetchFromApi(apiUrl, apiUrlProps)
 
 ## Vanilla Usage
 
+The vanilla package transforms anchor tags into preview cards. Pass a CSS selector, DOM element, or NodeList.
+
 ### Query Selector
 
 ```js
@@ -369,6 +403,8 @@ microlink(document.querySelector('#my-link'))
 
 ### Data Attributes
 
+Configure cards directly in HTML using `data-*` attributes. These are automatically parsed and applied.
+
 ```html
 <a href="https://github.com"
    data-media="video"
@@ -381,12 +417,16 @@ microlink(document.querySelector('#my-link'))
 
 ## Browser Support
 
+The SDK works in all modern browsers. Lazy loading requires IntersectionObserver support (available in all modern browsers).
+
 - Chrome (latest)
 - Firefox (latest)
 - Safari (latest)
 - Edge (latest)
 
 ## Peer Dependencies
+
+These packages must be installed in your project when using the React packages.
 
 ### React Package
 - `react` >= 17
